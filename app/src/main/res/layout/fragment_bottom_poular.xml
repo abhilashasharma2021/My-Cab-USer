@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragment.BottomPoularFragment">
+
+    <LinearLayout
+        android:id="@+id/bottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:elevation="10dp"
+        android:orientation="vertical"
+        android:padding="15dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:id="@+id/rl"
+            android:layout_height="150dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:id="@+id/ivpick"
+                android:src="@drawable/circle"
+                />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/v"
+                android:layout_below="@+id/ivpick"
+                android:background="@color/grey"
+                />
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:id="@+id/ivdrop"
+                android:layout_below="@+id/v"
+                android:src="@drawable/dest"
+                />
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_toRightOf="@+id/ivpick"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/robotoslabbold"
+                    android:text="PICK UP"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtPickUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/robotoslabbold"
+                    android:text="My Current Location"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/txtPickUp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/view"
+                    android:background="@color/grey" />
+
+
+                <TextView
+                    android:id="@+id/txtdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/robotoslabbold"
+                    android:text="DROP- OFF"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_below="@+id/view"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtDrop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtdd"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/robotoslabbold"
+                    android:text="Destination Location"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/v1"
+        android:layout_below="@+id/bottomSheet"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="#dbdbdb"/>
+    <TextView
+        android:id="@+id/txtNew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/v1"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:fontFamily="@font/robotoslabbold"
+        android:text="POPULAR LOCATIONS"
+        android:textColor="@color/grey"
+        android:textSize="14sp" />
+
+      <androidx.recyclerview.widget.RecyclerView
+          android:layout_width="match_parent"
+          android:id="@+id/rvPopular"
+          android:layout_below="@+id/txtNew"
+          android:layout_height="wrap_content"/>
+
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnNext"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginLeft="15dp"
+        android:layout_below="@+id/rvPopular"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="15dp"
+        android:backgroundTint="@color/purple_200"
+        android:text="@string/next"
+        app:cornerRadius="8dp">
+
+
+    </com.google.android.material.button.MaterialButton>
+</RelativeLayout>

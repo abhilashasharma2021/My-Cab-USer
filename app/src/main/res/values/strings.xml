@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">My Cab User</string>
+    <string name="verify">Verify</string>
+    <string name="enter_yout_otp_here">Enter your  OTP code here</string>
+    <string name="phone_verification">Phone Verification</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="name_exaple_com">name@exaple.com</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="connect_with_google">Connect With Google</string>
+    <string name="connect_with_facebook">Connect With Facebook</string>
+    <string name="track_your_ride">Track your ride</string>
+    <string name="request_ride">Request Ride</string>
+    <string name="home">Home</string>
+    <string name="setting">Setting</string>
+    <string name="confirm_your_driver">Confirm your driver</string>
+    <string name="know_your_driver_in_advance_and_be_nable_to_view_current_location_in_real_time_non_the_map">Know your driver in advance and be\nable to view current location in real time\non the map</string>
+    <string name="by_click_start_you_agree_to_our_terms_and_conditions">By click start, you agree to our Terms and conditions</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_bottom_popular">BottomPopularActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="apply">Apply</string>
+    <string name="input_promo_code">Input Promo Code</string>
+    <string name="next">Next</string>
+</resources>
