@@ -24,24 +24,25 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:id="@+id/ivpick"
-                android:src="@drawable/circle"
+                android:layout_marginLeft="3dp"
+                android:src="@drawable/dottblue"
                 />
 
             <View
                 android:layout_width="1dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="12dp"
                 android:id="@+id/v"
                 android:layout_below="@+id/ivpick"
-                android:background="@color/grey"
+                android:background="@drawable/dottedhoriline"
                 />
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:id="@+id/ivdrop"
                 android:layout_below="@+id/v"
-                android:src="@drawable/dest"
+                android:src="@drawable/locaation"
                 />
 
 

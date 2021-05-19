@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.AddRatingActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rl_header"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/purple_200">
+
+
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/arrowleft"
+                    android:padding="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/ivBack"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ride_completed"
+                    android:id="@+id/arrowleft"
+                    android:fontFamily="@font/robotoslabextrabold"
+                    android:textSize="16sp"
+                    android:layout_toRightOf="@+id/ivBack"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/white"
+                    android:gravity="center" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$"
+                    android:layout_toRightOf="@+id/ivright"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/txsys"
+                    android:fontFamily="@font/robotoslabbold"
+                    android:textSize="18sp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/black"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="25.00"
+                    android:layout_toRightOf="@+id/txsys"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/txPrice"
+                    android:fontFamily="@font/robotoslabbold"
+                    android:textSize="18sp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="10dp"
+                    />
+            </RelativeLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/final_your_trip_amount"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/robotoslabbold"
+                android:textSize="16sp"
+                android:layout_gravity="center"
+                android:id="@+id/txDescription"
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
+                />
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                app:cardElevation="8dp"
+                app:cardCornerRadius="12dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+
+                android:layout_height="180dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/rate_your_trip_experience"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/robotoslabregular"
+                        android:textSize="14sp"
+                        android:layout_gravity="center"
+                        android:id="@+id/tx"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/black"
+                        />
+
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/ivDriver"
+                        android:layout_width="50dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/dummy"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center"
+                        >
+
+                    </de.hdodenhof.circleimageview.CircleImageView>
+
+
+
+                    <androidx.appcompat.widget.AppCompatRatingBar
+                        android:id="@+id/ratingStar"
+                        style="?attr/ratingBarStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:isIndicator="false"
+                        android:numStars="5"
+                        android:layout_marginTop="15dp"
+                        android:saveEnabled="true"
+                        android:theme="@style/RatingBar">
+
+                    </androidx.appcompat.widget.AppCompatRatingBar>
+
+                </LinearLayout>
+
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:singleLine="true"
+                android:fontFamily="@font/robotoslabregular"
+                android:hint="@string/say_something_about_your_experience"
+                android:inputType="text"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="10dp"
+                android:maxLength="50"
+                android:maxLines="3"
+                android:textColorHint="@color/black"
+                android:layout_marginRight="10dp"
+                android:paddingLeft="10dp"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="@color/purple_200"
+        android:text="@string/submit"
+        app:cornerRadius="8dp">
+
+
+    </com.google.android.material.button.MaterialButton>
+
+</RelativeLayout>

@@ -8,10 +8,15 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#6D6D6D</color>
-    <color name="grey_light">#dbdbdb</color>
+    <color name="grey_light">#A4DBDBDB</color>
+    <color name="greyNew">#596D6D6D</color>
     <color name="light_blue">#6A0092DF</color>
     <color name="view_Grey">#dbdbdb</color>
-
+    <color name="blue">#213EDD</color>
+    <color name="transblue">#C1B5E3FA</color>
+    <color name="light_grey">#E3E3E3</color>
+    <color name="light_gold">#fcf1e0 </color>
+    <color name="dark_gold">#ee9f23 </color>
     <array name="array1_dot_active">
         <item>@color/purple_200</item>
         <item>@color/purple_200</item>

@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/greylight_rounded"
+    tools:context=".Fragment.ConfirmFrag">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:id="@+id/rlNew"
+            android:layout_marginTop="10dp"
+            android:layout_height="50dp">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivDriver"
+                android:layout_width="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_height="50dp"
+                android:src="@drawable/dummy"
+                android:layout_gravity="center"
+                >
+
+            </de.hdodenhof.circleimageview.CircleImageView>
+
+            <TextView
+                android:id="@+id/txtDriverName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/ivDriver"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/robotoslabbold"
+                android:text="Gregory smith "
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_toRightOf="@+id/ivDriver"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/txtDriverName"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:id="@+id/ivStar"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/star"
+                    />
+
+                <TextView
+                    android:id="@+id/txtRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/ivStar"
+                    android:fontFamily="@font/robotoslabregular"
+                    android:text="4.9"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp" />
+
+
+            </RelativeLayout>
+
+
+            <ImageView
+                android:id="@+id/ivChat"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:padding="2dp"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/ivCall"
+                android:layout_below="@+id/v"
+                android:src="@drawable/call" />
+
+            <ImageView
+                android:id="@+id/ivCall"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:padding="2dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_below="@+id/v"
+                android:src="@drawable/chat" />
+        </RelativeLayout>
+
+
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_below="@+id/rlNew"
+            android:layout_marginTop="15dp"
+            android:layout_height="220dp">
+
+
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/rl"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="50dp">
+                    <ImageView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:id="@+id/ivlocation"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/dummy1"
+                        />
+
+                    <TextView
+                        android:id="@+id/txtName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_toRightOf="@+id/ivlocation"
+                        android:layout_marginLeft="15dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/robotoslabbold"
+                        android:text="25 Recommended"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                </RelativeLayout>
+
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:id="@+id/view"
+                    android:layout_below="@+id/rl"
+                    android:background="@color/grey"/>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    android:id="@+id/ll"
+                    android:layout_below="@+id/view"
+                    android:layout_marginTop="20dp"
+                    android:layout_height="wrap_content">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:id="@+id/ivVehicel"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/car"
+                            />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tx1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:fontFamily="@font/robotoslabregular"
+                            android:text="@string/distance"
+                            android:textColor="@color/grey"
+                            android:textSize="12sp" />
+
+
+                        <TextView
+                            android:id="@+id/txDistance"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tx1"
+                            android:gravity="center"
+                            android:fontFamily="@font/robotoslabregular"
+                            android:text="0.2 Km"
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tx2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:fontFamily="@font/robotoslabregular"
+                            android:text="@string/time"
+                            android:textColor="@color/grey"
+                            android:textSize="12sp" />
+
+
+                        <TextView
+                            android:id="@+id/txPromo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tx2"
+                            android:gravity="center"
+                            android:fontFamily="@font/robotoslabregular"
+                            android:text="0.2 km"
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tx3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:fontFamily="@font/robotoslabregular"
+                            android:text="@string/price"
+                            android:textColor="@color/grey"
+                            android:textSize="12sp" />
+
+
+
+                        <TextView
+                            android:id="@+id/txOption"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tx3"
+                            android:gravity="center"
+                            android:fontFamily="@font/robotoslabregular"
+                            android:text="$ 25"
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
+                    </RelativeLayout>
+
+
+
+
+
+                </LinearLayout>
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnConfirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_below="@+id/ll"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="15dp"
+                    android:backgroundTint="@color/purple_200"
+                    android:text="@string/confirm"
+                    android:textAllCaps="false"
+                    app:cornerRadius="25dp">
+
+
+                </com.google.android.material.button.MaterialButton>
+
+            </RelativeLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/greylight_rounded"
+    tools:context=".Fragment.ScheduleTripFrag">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+
+
+        android:layout_height="350dp">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:id="@+id/rl"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:padding="6dp"
+                android:id="@+id/ivCancel"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/cancel"
+                />
+
+            <TextView
+                android:id="@+id/txtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_toLeftOf="@+id/ivCancel"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/robotoslabbold"
+                android:text="@string/schedule_your_trip"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+
+        </RelativeLayout>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_below="@+id/rl"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_height="280dp">
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:id="@+id/rlMAin"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tx"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="@font/robotoslabregular"
+                    android:text="Select Date"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/rlNew"
+                    android:layout_below="@+id/tx"
+                    android:background="@drawable/greyrounded"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="50dp">
+
+
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:id="@+id/spinner2"
+                        android:layout_gravity="center"
+                        android:background="@color/black"
+                        android:layout_marginRight="15dp"
+                        android:spinnerMode="dropdown"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_height="wrap_content"/>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_below="@+id/rlNew"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tx1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:fontFamily="@font/robotoslabregular"
+                        android:text="Select Time"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:id="@+id/rlNew1"
+                        android:layout_below="@+id/tx1"
+                        android:background="@drawable/greyrounded"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="50dp">
+
+
+                        <Spinner
+                            android:layout_width="wrap_content"
+                            android:id="@+id/spinner"
+                            android:layout_gravity="center"
+                            android:background="@color/black"
+                            android:layout_marginRight="15dp"
+                            android:spinnerMode="dropdown"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_height="wrap_content"/>
+
+                    </RelativeLayout>
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnNext"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_below="@+id/rlNew1"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="15dp"
+                        android:backgroundTint="@color/purple_200"
+                        android:text="@string/next"
+                        app:cornerRadius="8dp">
+
+
+                    </com.google.android.material.button.MaterialButton>
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </RelativeLayout>
+
+</RelativeLayout>

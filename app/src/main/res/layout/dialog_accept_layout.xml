@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        app:cardCornerRadius="15dp"
+        android:layout_centerInParent="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="10dp">
+
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:src="@drawable/tick"
+            android:tint="@color/purple_200"
+            android:layout_marginTop="15dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/txt2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center"
+                android:text="Booking Successful"
+                android:gravity="center_horizontal"
+                android:fontFamily="@font/robotoslabbold"
+                android:layout_marginStart="15dp"
+                android:textStyle="bold"
+                android:layout_marginEnd="15dp"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/tx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt2"
+                android:layout_marginTop="5dp"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/robotoslabbold"
+                android:text="your booking has been confirmed \n driver will picked you in  soon."
+                android:textColor="@color/grey"
+                android:textSize="14sp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:id="@+id/view"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/tx"
+                android:background="#dbdbdb"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_below="@+id/view"
+                android:id="@+id/ll"
+                android:layout_marginTop="15dp"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/rlCancel"
+                    android:layout_height="match_parent">
+
+
+
+                    <TextView
+                        android:id="@+id/txCancel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/robotoslabbold"
+                        android:text="@string/cancel"
+                        android:textColor="@color/grey"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="80dp"
+                    android:background="#dbdbdb"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/rlDone"
+                    android:layout_height="match_parent">
+
+
+
+                    <TextView
+                        android:id="@+id/txPromo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:fontFamily="@font/robotoslabbold"
+                        android:text="Done"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/purple_200"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+
+
+
+
+
+            </LinearLayout>
+
+
+
+
+        </RelativeLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</RelativeLayout>

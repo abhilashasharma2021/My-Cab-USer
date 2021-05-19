@@ -15,11 +15,14 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.mycabuser.Fragment.HomeFragment;
+import com.mycabuser.MainActivity;
 import com.mycabuser.R;
+import com.mycabuser.Utils.ProgressBarCustom.Appconstant;
+import com.mycabuser.Utils.ProgressBarCustom.SharedHelper;
 
 public class NavigationActivity extends AppCompatActivity  implements View.OnClickListener {
     public static DrawerLayout drawer;
-    RelativeLayout rlLogout,rlSetting;
+    RelativeLayout rlLogout,rlSetting,rlNotification,rlHome,rlHistory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +36,16 @@ public class NavigationActivity extends AppCompatActivity  implements View.OnCli
         }
 
         rlLogout = findViewById(R.id.rlLogout);
+        rlHome = findViewById(R.id.rlHome);
         rlSetting = findViewById(R.id.rlSetting);
+        rlHistory = findViewById(R.id.rlHistory);
+        rlLogout = findViewById(R.id.rlLogout);
+        rlNotification = findViewById(R.id.rlNotification);
         rlSetting.setOnClickListener(this);
+        rlNotification.setOnClickListener(this);
+        rlHome.setOnClickListener(this);
+        rlHistory.setOnClickListener(this);
+        rlLogout.setOnClickListener(this);
 
     }
 
@@ -42,8 +53,8 @@ public class NavigationActivity extends AppCompatActivity  implements View.OnCli
     public void onClick(View v) {
         switch (v.getId()) {
 
-            case R.id.rel_logout:
-               // logout();
+            case R.id.rlLogout:
+               logout();
                 break;
 
             case R.id.rlSetting:
@@ -51,16 +62,26 @@ public class NavigationActivity extends AppCompatActivity  implements View.OnCli
                 drawer.closeDrawer(GravityCompat.START);
                 break;
 
+            case R.id.rlNotification:
+                startActivity(new Intent(getApplicationContext(), NotificationActivity.class));
+                drawer.closeDrawer(GravityCompat.START);
+                break;
+            case R.id.rlHistory:
+                startActivity(new Intent(getApplicationContext(), HistoryActivity.class));
+                drawer.closeDrawer(GravityCompat.START);
+                break;
+
+            case R.id.rlHome:
+               getSupportFragmentManager().beginTransaction().replace(R.id.fram_container,new HomeFragment()).commit();
+                drawer.closeDrawer(GravityCompat.START);
+                break;
            /* case R.id.rel_Trip:
                 startActivity(new Intent(getApplicationContext(), TripHistoryActivity.class));
                 drawer.closeDrawer(GravityCompat.START);
                 break;
 
 
-            case R.id.rlNotification:
-                startActivity(new Intent(getApplicationContext(), NotificationActivity.class));
-                drawer.closeDrawer(GravityCompat.START);
-                break;
+
 
 
 
@@ -94,9 +115,9 @@ public class NavigationActivity extends AppCompatActivity  implements View.OnCli
         btn_yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               /* SharedHelper.putKey(getApplicationContext(), AppConstats.USER_ID, "");
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                finish();*/
+               SharedHelper.putKey(getApplicationContext(), Appconstant.USERID, "");
+                startActivity(new Intent(getApplicationContext(), SplashActivity.class));
+                finish();
             }
         });
 

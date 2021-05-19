@@ -40,7 +40,7 @@ public class JustGoFragment extends Fragment {
         binding.btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fram_container,new ApplyPromoCodeFragment()).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fram_container,new RequestFragment()).commit();
             }
         });
         adapter = new JustGoAdapter(context, justList);
@@ -58,7 +58,7 @@ public class JustGoFragment extends Fragment {
     }
 
     private void getData(){
-        JustGoModel model=new JustGoModel("Limousune"," $ 25.00","0.2 km"," 5min",R.drawable.back);
+        JustGoModel model=new JustGoModel("Limousune"," $ 25.00","0.2 km"," 5min",R.drawable.car);
         for (int i = 0; i <4 ; i++) {
             justList.add(model) ;
         }

@@ -1,6 +1,7 @@
 package com.mycabuser.Fragment;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
@@ -33,11 +34,16 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.mycabuser.Activity.MyAccountActivity;
 import com.mycabuser.Activity.NavigationActivity;
 import com.mycabuser.R;
+import com.mycabuser.Utils.ProgressBarCustom.Appconstant;
+import com.mycabuser.Utils.ProgressBarCustom.SharedHelper;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class HomeFragment extends Fragment implements OnMapReadyCallback {
@@ -52,10 +58,13 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     boolean isLocationPermission = false;
     GoogleMap mMap;
+
     CameraPosition cameraPosition;
     Location lastLocation;
     //////////////////////////////////////////////
     ImageView menu;
+    String getUserId="";
+    CircleImageView prf;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -65,7 +74,17 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.frag_map);
         mapFragment.getMapAsync(this);
 
+        getUserId = SharedHelper.getKey(getActivity(), Appconstant.USERID);
+        Log.e("HomeFragment", "getUserId: " +getUserId);
+
         menu = view.findViewById(R.id.menu);
+        prf = view.findViewById(R.id.prf);
+        prf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), MyAccountActivity.class));
+            }
+        });
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

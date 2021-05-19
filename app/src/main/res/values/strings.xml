@@ -27,4 +27,31 @@
     <string name="apply">Apply</string>
     <string name="input_promo_code">Input Promo Code</string>
     <string name="next">Next</string>
+    <!--  <string name="api_key">"AIzaSyDB-DSxcKUzV8bNwFlAafIgGvXRAj1X0CU"</string>-->
+    <!-- <string name="api_key">"AIzaSyD3_8H0ytV4gbNenMktwQdX8lM4gmetxsM"</string>-->
+    <string name="api_key">"AIzaSyAgMeOmnw9c1zYBLzE7DPUB3onTfFylaqQ"</string>
+    <string name="schedule_your_trip">Schedule your Trip</string>
+    <string name="request">Request</string>
+    <string name="payment">Payment</string>
+    <string name="promo_code">Promo Code</string>
+    <string name="options">Options</string>
+    <string name="confirm">Confirm</string>
+    <string name="distance">DISTANCE</string>
+    <string name="time">Time</string>
+    <string name="price">Price</string>
+    <string name="cancel">Cancel</string>
+    <string name="submit">Submit</string>
+    <string name="rate_your_trip_experience">Rate your trip experience ?</string>
+    <string name="final_your_trip_amount">Final your trip amount</string>
+    <string name="ride_completed">Ride Completed</string>
+    <string name="say_something_about_your_experience">Say Something about your experience</string>
+    <string name="bill_details">Bill Details</string>
+    <string name="cash_payment">(cash payment)</string>
+    <string name="ride_fare">Ride Fare</string>
+    <string name="taxes">Taxes</string>
+    <string name="discount">Discount</string>
+    <string name="total_bill">Total Bill</string>
+    <string name="done">Done</string>
+    <string name="save">Save</string>
+
 </resources>

@@ -23,6 +23,7 @@
        android:layout_marginRight="15dp"
        android:backgroundTint="@color/purple_200"
        android:text="@string/next"
+       android:textAllCaps="false"
        app:cornerRadius="8dp">
 
 
