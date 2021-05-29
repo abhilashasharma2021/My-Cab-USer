@@ -1,4 +1,4 @@
-package com.mycabuser.model;
+package com.mycabuser.retrofitmodel;
 
 public class PopularModel {
     private String placeName;

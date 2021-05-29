@@ -9,10 +9,7 @@
 
   <RelativeLayout
       android:layout_width="match_parent"
-
-
       android:layout_height="220dp">
-
 
       <RelativeLayout
           android:layout_width="match_parent"
@@ -74,7 +71,7 @@
             android:src="@drawable/promo"
             app:tint="@color/purple_200" />
         <EditText
-            android:id="@+id/etEmail"
+            android:id="@+id/etPromo"
             android:layout_width="wrap_content"
             android:layout_toRightOf="@+id/iv"
             android:layout_height="wrap_content"

@@ -38,7 +38,7 @@
                 android:textColor="@color/black"
                 android:textSize="16sp" />
             <TextView
-                android:id="@+id/txtDistance"
+                android:id="@+id/txtDistance1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtName"
@@ -57,19 +57,20 @@
                 android:layout_marginRight="10dp"
                 android:layout_alignParentRight="true"
                 android:fontFamily="@font/robotoslabregular"
-                android:text="$ 25.00"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/txtTime"
+                android:id="@+id/txtDistance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtPrice"
-                android:layout_marginRight="10dp"
                 android:layout_alignParentRight="true"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="9dp"
                 android:fontFamily="@font/robotoslabregular"
-                android:text="2 min"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="12sp" />
         </RelativeLayout>

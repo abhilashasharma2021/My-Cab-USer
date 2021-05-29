@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.maps.model.LatLng;
@@ -48,10 +49,18 @@ public class LocationFragment extends Fragment {
         binding = FragmentLocationBinding.inflate(getLayoutInflater(), container, false);
         view = binding.getRoot();
         context = getActivity();
+
         binding.btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fram_container, new ScheduleTripFrag()).commit();
+                if (st_PickAddress.equals("")){
+                    Toast.makeText(context, "Select pick up location first", Toast.LENGTH_SHORT).show();
+                }else if (st_DROPEDAddress.equals("")){
+                    Toast.makeText(context, "Select drop Off location first", Toast.LENGTH_SHORT).show();
+                }else {
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fram_container, new ScheduleTripFrag()).commit();
+                }
+
             }
         });
 
@@ -125,7 +134,7 @@ public class LocationFragment extends Fragment {
 
                             Log.e("rtrere", "latlng" + pickUplatlng.latitude + "," + pickUplatlng.longitude);
                             List<Address> addressList = geocoder.getFromLocation(pickUplatlng.latitude, pickUplatlng.longitude, 1);
-
+                            SharedHelper.putKey(getActivity(), Appconstant.PICK_USER_Address, addressList.get(0).getAddressLine(0));
                             if (addressList != null) {
 
                                 st_PickAddress = addressList.get(0).getAddressLine(0);
@@ -198,7 +207,7 @@ public class LocationFragment extends Fragment {
 
                             Log.e("grgbrtfbh", "latlng" + dropUplatlng.latitude + "," + dropUplatlng.longitude);
                             List<Address> addressList = geocoder.getFromLocation(dropUplatlng.latitude, dropUplatlng.longitude, 1);
-
+                            SharedHelper.putKey(getActivity(), Appconstant.DROP_OFF_Address, addressList.get(0).getAddressLine(0));
                             if (addressList != null) {
 
                                 st_DROPEDAddress = addressList.get(0).getAddressLine(0);

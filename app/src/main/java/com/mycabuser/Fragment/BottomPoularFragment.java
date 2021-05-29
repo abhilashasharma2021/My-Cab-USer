@@ -3,7 +3,6 @@ package com.mycabuser.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,10 +14,9 @@ import com.deishelon.roundedbottomsheet.RoundedBottomSheetDialogFragment;
 import com.mycabuser.R;
 import com.mycabuser.adapter.PopularAdapter;
 import com.mycabuser.databinding.FragmentBottomPoularBinding;
-import com.mycabuser.model.PopularModel;
+import com.mycabuser.retrofitmodel.PopularModel;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class BottomPoularFragment  extends RoundedBottomSheetDialogFragment {

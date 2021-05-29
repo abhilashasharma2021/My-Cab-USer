@@ -20,6 +20,7 @@
        android:layout_marginLeft="15dp"
        android:layout_below="@+id/rvJustGo"
        android:layout_marginTop="30dp"
+       android:visibility="gone"
        android:layout_marginRight="15dp"
        android:backgroundTint="@color/purple_200"
        android:text="@string/next"

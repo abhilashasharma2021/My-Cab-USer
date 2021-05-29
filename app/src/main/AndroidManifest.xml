@@ -22,39 +22,44 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyCabUser">
-        <activity android:name=".Activity.MyAccountActivity"></activity>
+        <activity android:name=".Activity.MyAccountActivity"/>
         <activity
             android:name=".Activity.RideCompletedActivity"
             android:configChanges="orientation|screenSize"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
         <activity
             android:name=".Activity.AddRatingActivity"
             android:configChanges="orientation|screenSize"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
         <activity
             android:name=".Activity.PaymentMethodActivity"
             android:configChanges="orientation|screenSize"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
         <activity
             android:name=".Activity.HistoryActivity"
             android:configChanges="orientation|screenSize"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
         <activity
             android:name=".Activity.NotificationActivity"
             android:configChanges="orientation|screenSize"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
         <activity
             android:name=".Activity.RoughActivity"
             android:configChanges="orientation|screenSize"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
+
+        </activity>
         <activity
             android:name=".Activity.SettingActivity"
             android:configChanges="orientation|screenSize"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
         <activity
             android:name=".Activity.NavigationActivity"
             android:configChanges="orientation|screenSize"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
+
+
+        </activity>
         <activity
             android:name=".Activity.OTPVerifyActivity"
             android:configChanges="orientation|screenSize"
@@ -78,9 +83,14 @@
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
 
+     <!--   <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBVXWPGpxUIMfAn4T-rzWkWNaDzeEWKmTo"
+             AIzaSyAgMeOmnw9c1zYBLzE7DPUB3onTfFylaqQ/>-->
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBVXWPGpxUIMfAn4T-rzWkWNaDzeEWKmTo" />
+            android:value="AIzaSyBOvBH3mXpuEzjP-KCbCYyw3curznSY9uI" />
     </application>
 
 </manifest>

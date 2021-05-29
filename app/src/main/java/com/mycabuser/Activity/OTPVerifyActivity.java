@@ -13,6 +13,7 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.mycabuser.APIData.API;
 import com.mycabuser.R;
 import com.mycabuser.Utils.ProgressBarCustom.Api;
 import com.mycabuser.Utils.ProgressBarCustom.Appconstant;
@@ -86,7 +87,7 @@ public class OTPVerifyActivity extends AppCompatActivity {
         Log.e("OTPVerifyActivity", "getOTP: " +getOTP);
         CustomDialog dialog = new CustomDialog();
         dialog.showDialog(R.layout.progress_layout, this);
-        AndroidNetworking.post(Api.BASE_URL+Api.verify_otp)
+        AndroidNetworking.post(Api.BASE_URL+ Api.verify_otp)
                 .addBodyParameter("email",getEmail)
                 .addBodyParameter("mobile",getMobile)
                 .addBodyParameter("otp",getOTP)
@@ -150,7 +151,7 @@ public class OTPVerifyActivity extends AppCompatActivity {
 
         CustomDialog dialog = new CustomDialog();
         dialog.showDialog(R.layout.progress_layout, this);
-        AndroidNetworking.post(Api.BASE_URL+Api.signup)
+        AndroidNetworking.post(Api.BASE_URL+ Api.signup)
                 .addBodyParameter("email", getEmail)
                 .addBodyParameter("mobile", getMobile)
                 .addBodyParameter("user_id", stUserID)

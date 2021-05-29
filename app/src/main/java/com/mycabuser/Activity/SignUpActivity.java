@@ -17,6 +17,7 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.mycabuser.APIData.API;
 import com.mycabuser.R;
 import com.mycabuser.Utils.ProgressBarCustom.Api;
 import com.mycabuser.Utils.ProgressBarCustom.Appconstant;
@@ -67,7 +68,7 @@ public class SignUpActivity extends AppCompatActivity {
                 stMobile = binding.etMobile.getText().toString().trim();
                 if (validationSignIn()) {
                     /*call api*/
-                    Toast.makeText(SignUpActivity.this, "check", Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(SignUpActivity.this, "check", Toast.LENGTH_SHORT).show();
                     genrate_otp();
                 } else {
                     validationSignIn();
