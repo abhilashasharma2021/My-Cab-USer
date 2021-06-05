@@ -133,7 +133,7 @@ public class RequestFragment extends Fragment {
         param.put("drop_long", stDropLong);
         param.put("user_id", stUserId);
         param.put("amount", stSelectedAmount);
-        param.put("driver_id", stSELECTEDVEHICLEId);
+        param.put("vehicle_id", stSELECTEDVEHICLEId);
         param.put("pickup_location", stPickAddress);
         param.put("drop_location", stDropAddress);
         param.put("schedule_date", stSelectedDate);
