@@ -7,4 +7,5 @@ public class Api {
     public static final String genrate_otp="action=genrate_otp";
     public static final String verify_otp="action=sign_in";
     public static final String signup="action=signup";
+    public static final String login="action=login";
 }
