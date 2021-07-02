@@ -84,13 +84,6 @@ public class JustGoAdapter extends RecyclerView.Adapter<JustGoAdapter.MyViewHold
 
         }
 
-
-
-
-
-
-
-
     }
 
     @Override

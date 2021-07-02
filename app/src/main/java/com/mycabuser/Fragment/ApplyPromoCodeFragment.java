@@ -107,6 +107,7 @@ FragmentApplyPromoCodeBinding binding;
                         if (applyPromoModel.getResult().equals("Apply Successfully")){
 
                             Log.e("ApplyPromoCodeFragment", "onResponse: " +applyPromoModel.getResult());
+
                             SharedHelper.putKey(getActivity(), Appconstant.SELECTEDVEHICLE, applyPromoModel.getCodeAmount());
 
                         }

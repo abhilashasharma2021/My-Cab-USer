@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.ValueAnimator;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
@@ -17,6 +18,13 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 import com.mycabuser.APIData.API;
 import com.mycabuser.R;
 import com.mycabuser.Utils.ProgressBarCustom.Api;
@@ -35,13 +43,19 @@ public class SignUpActivity extends AppCompatActivity {
     ActivitySignUpBinding binding;
     String stMobile = "", stEmail = "";
 
+
+    public static GoogleSignInClient mGoogleSignInClient;
+    /*Google integration without using firebase*/
+
+    public static final int RC_GOOGLE_SIGN_IN = 9999;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivitySignUpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
+        googleSignIn();
         String text = "By click start, you agree to our  <font color=#0092df>Terms and conditions</font>";
         binding.txtterm.setText(Html.fromHtml(text), TextView.BufferType.SPANNABLE);
 
@@ -352,4 +366,72 @@ public class SignUpActivity extends AppCompatActivity {
                 });
 
     }
-}
+
+    /*Google integration without using firebase*/
+
+
+    public void googleSignIn() {
+
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+
+        binding.signInButton.setSize(SignInButton.SIZE_STANDARD);
+
+        binding.relGoogle.setOnClickListener(view -> signIn());
+    }
+
+
+    private void signIn() {
+        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+        startActivityForResult(signInIntent, RC_GOOGLE_SIGN_IN);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+
+        if (requestCode == RC_GOOGLE_SIGN_IN) {
+
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            handleSignInResult(task);
+        }
+    }
+
+
+    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
+        try {
+
+            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
+
+            // Signed in successfully, show authenticated UI.
+            if (account != null) {
+                String name = account.getDisplayName();
+                String email = account.getEmail();
+                String authID = account.getId();
+                Uri imageURI = account.getPhotoUrl();
+                String image = String.valueOf(imageURI);
+
+                //      String regID = SharedHelper.getKey(LoginorRegisterActivity.this, AppConstats.REG_ID);
+                Log.e("wedwedwedwed", name + "," + email + "," + authID + "," + image);
+                // soicalGoogleLogin(authID, "google", name, email, image, regID);
+                //    socialLogin(authID, "google");
+            }
+
+
+        } catch (ApiException e) {
+
+            Log.e("kjckjsc", "signInResult:failed code=" + e.getStatusCode());
+        }
+
+
+    }
+
+
+    }

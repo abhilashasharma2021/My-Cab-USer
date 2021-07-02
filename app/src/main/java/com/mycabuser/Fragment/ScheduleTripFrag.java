@@ -104,7 +104,7 @@ public class ScheduleTripFrag extends Fragment {
                 }else if ( stTime.equals("")){
                     Toast.makeText(context, "Select pick up time  first", Toast.LENGTH_SHORT).show();
                 }else {
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fram_container,new BottomPoularFragment()).commit();
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fram_container,new JustGoFragment()).commit();
                 }
 
 

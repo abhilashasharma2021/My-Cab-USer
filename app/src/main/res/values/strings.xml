@@ -28,8 +28,10 @@
     <string name="input_promo_code">Input Promo Code</string>
     <string name="next">Next</string>
     <!--  <string name="api_key">"AIzaSyDB-DSxcKUzV8bNwFlAafIgGvXRAj1X0CU"</string>-->
-    <!-- <string name="api_key">"AIzaSyD3_8H0ytV4gbNenMktwQdX8lM4gmetxsM"</string>-->
-    <string name="api_key">"AIzaSyAgMeOmnw9c1zYBLzE7DPUB3onTfFylaqQ"</string>
+    <!-- <string name="api_key">"AIzaSyD3_8H0ytV4gbNenMktwQdX8lM4gmetxsM"</string>--><!--True lease-->
+   <!-- <string name="api_key">"AIzaSyD3_8H0ytV4gbNenMktwQdX8lM4gmetxsM"</string>-->
+   <!-- <string name="api_key">"AIzaSyCoGZm11Rjh0Yc_NkMPDyIkZH0x87F0cKs"</string>-->
+    <string name="api_key">"AIzaSyCJuMnRukkohrMxeK_zcN8pbdzUuCHa-PE"</string>
     <string name="schedule_your_trip">Schedule your Trip</string>
     <string name="request">Request</string>
     <string name="payment">Payment</string>

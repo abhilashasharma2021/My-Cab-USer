@@ -88,9 +88,13 @@
             android:value="AIzaSyBVXWPGpxUIMfAn4T-rzWkWNaDzeEWKmTo"
              AIzaSyAgMeOmnw9c1zYBLzE7DPUB3onTfFylaqQ/>-->
 
+     <!--   <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBOvBH3mXpuEzjP-KCbCYyw3curznSY9uI" />-->
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBOvBH3mXpuEzjP-KCbCYyw3curznSY9uI" />
+            android:value="AIzaSyA9S6g02sDK4rJJ7S-hfrcv-hwMJB5udek" />
     </application>
 
 </manifest>

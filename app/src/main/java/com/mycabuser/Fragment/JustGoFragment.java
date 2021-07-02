@@ -1,10 +1,14 @@
 package com.mycabuser.Fragment;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,6 +16,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mycabuser.APIData.API;
@@ -120,13 +127,45 @@ public class JustGoFragment extends Fragment {
                             justList.addAll(list);
 
                         }
+
+                        else if (justGoModel.getStatus().equals("false")){
+
+
+                            final Dialog dialog = new Dialog(getActivity());
+                            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                            dialog.setCancelable(true);
+                            dialog.setContentView(R.layout.dialog_no_driver_available_layout);
+
+                            Button btOk =(Button) dialog.findViewById(R.id.btOk);
+
+
+
+                            btOk.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+
+                                    Fragment fragment=new HomeFragment();
+                                    FragmentManager fragmentManager=getActivity().getSupportFragmentManager();
+                                    FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+                                    fragmentTransaction.replace(R.id.fram_container,fragment).commit();
+                                    dialog.dismiss();
+                                }
+                            });
+
+                            dialog.show();
+
+                        }
+
+
+
+                        }
                         adapter = new JustGoAdapter(context, justList);
                         binding.rvJustGo.setAdapter(adapter);
                     }
 
 
                 }
-            }
+
 
             @Override
             public void onFailure(Call<JustGoModel> call, Throwable t) {
