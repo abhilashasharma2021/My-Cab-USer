@@ -90,6 +90,7 @@ public class OTPVerifyActivity extends AppCompatActivity {
         AndroidNetworking.post(Api.BASE_URL+ Api.verify_otp)
                 .addBodyParameter("email",getEmail)
                 .addBodyParameter("mobile",getMobile)
+                .addBodyParameter("type", "1")/* type=0 Driver type= 1 user*/
                 .addBodyParameter("otp",getOTP)
                 .setPriority(Priority.HIGH)
                 .build()

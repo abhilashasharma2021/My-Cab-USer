@@ -262,7 +262,7 @@
                         <ImageView
                             android:layout_width="20dp"
                             android:id="@+id/ivGoogle"
-                            android:layout_marginLeft="3dp"
+                            android:layout_marginLeft="5dp"
                             android:layout_centerVertical="true"
                             android:src="@drawable/google"
                             android:layout_height="20dp"/>
@@ -313,7 +313,7 @@
                             android:id="@+id/ivFacebook"
                             android:layout_centerVertical="true"
                             android:src="@drawable/facebook"
-                            android:layout_marginLeft="3dp"
+                            android:layout_marginLeft="5dp"
                             android:layout_height="20dp"/>
                         <TextView
                             android:layout_width="wrap_content"

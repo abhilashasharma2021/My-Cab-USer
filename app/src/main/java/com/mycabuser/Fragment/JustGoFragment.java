@@ -128,7 +128,7 @@ public class JustGoFragment extends Fragment {
 
                         }
 
-                        else if (justGoModel.getStatus().equals("false")){
+                        else {
 
 
                             final Dialog dialog = new Dialog(getActivity());

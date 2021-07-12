@@ -137,7 +137,7 @@ public class RequestFragment extends Fragment {
         param.put("pickup_location", stPickAddress);
         param.put("drop_location", stDropAddress);
         param.put("schedule_date", stSelectedDate);
-        param.put("schedule_time", stSelectedDate);
+        param.put("schedule_time", stSelectedTime);
 
         Call<RequestModel> call = jsonInterface.addRequest(param);
         call.enqueue(new Callback<RequestModel>() {

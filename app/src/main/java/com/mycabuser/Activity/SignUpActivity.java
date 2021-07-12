@@ -36,8 +36,11 @@ import com.mycabuser.databinding.ActivitySignUpBinding;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import okhttp3.OkHttpClient;
 
 public class SignUpActivity extends AppCompatActivity {
     ActivitySignUpBinding binding;
@@ -241,6 +244,13 @@ public class SignUpActivity extends AppCompatActivity {
 
 
     public void genrate_otp() {
+
+        OkHttpClient innerClient = new OkHttpClient.Builder()
+                .connectTimeout(5, TimeUnit.MINUTES) // connect timeout
+                .writeTimeout(5, TimeUnit.MINUTES) // write timeout
+                .readTimeout(5, TimeUnit.MINUTES) // read timeout
+                .build();
+
         CustomDialog dialog = new CustomDialog();
         dialog.showDialog(R.layout.progress_layout, this);
 
@@ -250,6 +260,7 @@ public class SignUpActivity extends AppCompatActivity {
         AndroidNetworking.post(Api.BASE_URL + Api.genrate_otp)
                 .addBodyParameter("email", stEmail)
                 .addBodyParameter("mobile", stMobile)
+                .setOkHttpClient(innerClient)
                 .setPriority(Priority.HIGH)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
@@ -331,7 +342,6 @@ public class SignUpActivity extends AppCompatActivity {
                                 String email=response.getString("email");
 
                                 Log.e("dvgfdb", "phone_number: " +phone_number);
-                                SharedHelper.putKey(getApplicationContext(), Appconstant.USERID, response.getString("id"));
                                 SharedHelper.putKey(getApplicationContext(), Appconstant.UserEmail, response.getString("email"));
                                 SharedHelper.putKey(getApplicationContext(), Appconstant.UserMobile, response.getString("phone_number"));
                                 SharedHelper.putKey(getApplicationContext(), Appconstant.GetOtp,response.getString("otp"));
