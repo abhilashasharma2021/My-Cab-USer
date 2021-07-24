@@ -1,8 +1,10 @@
 package com.mycabuser.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.Manifest;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -68,34 +70,9 @@ String userId="",PagerStatus="";
                 ).withListener(new MultiplePermissionsListener() {
             @Override
             public void onPermissionsChecked(MultiplePermissionsReport report) {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
 
-                        if (PagerStatus.equals("1")){
-                            if (userId.equals("")) {
+                show_driver_responce();
 
-                                startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
-                                finish();
-
-                            } else {
-                                startActivity(new Intent(getApplicationContext(), NavigationActivity.class));
-                                finish();
-
-                            }
-
-
-                        }
-                        else {
-
-                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                                finish();
-                        }
-
-
-
-                    }
-                }, 3000);
             }
 
             @Override
@@ -104,7 +81,7 @@ String userId="",PagerStatus="";
             }
         }).check();
 
-        show_driver_responce();
+
 
     }
 
@@ -120,6 +97,7 @@ String userId="",PagerStatus="";
                 .getAsJSONArray(new JSONArrayRequestListener() {
                     @Override
                     public void onResponse(JSONArray response) {
+                        Log.e("sdssdsdsds", response.toString());
                         for (int i = 0; i <response.length() ; i++) {
                             try {
                                 JSONObject object=response.getJSONObject(i);
@@ -128,18 +106,51 @@ String userId="",PagerStatus="";
                                 String status=object.getString("status");
 
                                if (driver_status.equals("true")){
-                                   if (status.equals("1")){
-                                       getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ConfirmFrag()).commit();
-                                   }
+
+                                   new Handler().postDelayed(new Runnable() {
+                                       @Override
+                                       public void run() {
+
+
+                                           if (PagerStatus.equals("1")){
+                                               if (userId.equals("")) {
+
+                                                   startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
+                                                   finish();
+                                                   SharedHelper.putKey(getApplicationContext(), Appconstant.REQUESTSTATUSPAGE, "");
+                                               } else {
+
+                                                   if (status.equals("1")){
+                                                       SharedHelper.putKey(getApplicationContext(), Appconstant.REQUESTSTATUSPAGE, "1");
+                                                       startActivity(new Intent(getApplicationContext(), NavigationActivity.class));
+                                                       finish();
+                                                       Log.e("sdssdsdsds", status+"1");
+                                                   }else {
+                                                       SharedHelper.putKey(getApplicationContext(), Appconstant.REQUESTSTATUSPAGE, "");
+
+                                                       startActivity(new Intent(getApplicationContext(), NavigationActivity.class));
+                                                       finish();
+                                                       Log.e("sdssdsdsds", status+"ccc");
+                                                   }
+
+                                               }
+
+
+                                           }
+                                           else {
+
+                                               startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                               finish();
+                                           }
+
+
+
+                                       }
+                                   }, 3000);
 
 
 
                                }
-                               else {
-                                   startActivity(new Intent(getApplicationContext(), NavigationActivity.class));
-                                   finish();
-                               }
-
 
                             } catch (JSONException e) {
                                 Log.e("SplashActivity", "e: " +e);

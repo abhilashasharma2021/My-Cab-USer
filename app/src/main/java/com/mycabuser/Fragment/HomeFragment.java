@@ -63,7 +63,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
     Location lastLocation;
     //////////////////////////////////////////////
     ImageView menu;
-    String getUserId="";
+    String getUserId="",REQUESTSTATUSPAGE="";
     CircleImageView prf;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -73,8 +73,9 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
 
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.frag_map);
         mapFragment.getMapAsync(this);
-
+        REQUESTSTATUSPAGE = SharedHelper.getKey(getActivity(), Appconstant.REQUESTSTATUSPAGE);
         getUserId = SharedHelper.getKey(getActivity(), Appconstant.USERID);
+
         Log.e("HomeFragment", "getUserId: " +getUserId);
 
         menu = view.findViewById(R.id.menu);
@@ -92,6 +93,8 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
             }
         });
 
+
+
         /////////////////////////////////////////////////////////////////////////////////
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getActivity());
@@ -103,8 +106,14 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
 
         /////////////////////////////////////////////////////////////////////////////////
     if (savedInstanceState== null){
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fram_container, new LocationFragment())
-                .commit();
+        if (REQUESTSTATUSPAGE.equals("1")){
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fram_container, new ConfirmFrag())
+                    .commit();
+        }else {
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fram_container, new LocationFragment())
+                    .commit();
+        }
+
         }
 
 

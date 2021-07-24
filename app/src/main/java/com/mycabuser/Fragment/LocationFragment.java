@@ -40,7 +40,7 @@ public class LocationFragment extends Fragment {
     FragmentLocationBinding binding;
     private View view;
     private Context context;
-    String st_PickedLat="",st_PickedLong="",st_PickAddress="",st_DROPED_Lat="",st_DROPED_Long="",st_DROPEDAddress="";
+    String st_PickedLat="",st_PickedLong="",st_PickAddress="",st_DROPED_Lat="",st_DROPED_Long="",st_DROPEDAddress="",REQUESTSTATUSPAGE="";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,6 +49,14 @@ public class LocationFragment extends Fragment {
         binding = FragmentLocationBinding.inflate(getLayoutInflater(), container, false);
         view = binding.getRoot();
         context = getActivity();
+
+
+        if (REQUESTSTATUSPAGE.equals("1")){
+
+        }else {
+
+        }
+
 
         binding.btnNext.setOnClickListener(new View.OnClickListener() {
             @Override

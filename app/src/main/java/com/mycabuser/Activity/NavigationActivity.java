@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.mycabuser.Fragment.ConfirmFrag;
 import com.mycabuser.Fragment.HomeFragment;
 import com.mycabuser.MainActivity;
 import com.mycabuser.R;
@@ -23,16 +24,20 @@ import com.mycabuser.Utils.ProgressBarCustom.SharedHelper;
 public class NavigationActivity extends AppCompatActivity  implements View.OnClickListener {
     public static DrawerLayout drawer;
     RelativeLayout rlLogout,rlSetting,rlNotification,rlHome,rlHistory;
+    String REQUESTSTATUSPAGE="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
         drawer = findViewById(R.id.drawer);
+        REQUESTSTATUSPAGE=SharedHelper.getKey(getApplicationContext(),Appconstant.REQUESTSTATUSPAGE);
 
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+
+
         }
 
         rlLogout = findViewById(R.id.rlLogout);
@@ -72,8 +77,8 @@ public class NavigationActivity extends AppCompatActivity  implements View.OnCli
                 break;
 
             case R.id.rlHome:
-               getSupportFragmentManager().beginTransaction().replace(R.id.fram_container,new HomeFragment()).commit();
-                drawer.closeDrawer(GravityCompat.START);
+             /*  getSupportFragmentManager().beginTransaction().replace(R.id.fram_container,new HomeFragment()).commit();
+                drawer.closeDrawer(GravityCompat.START);*/
                 break;
            /* case R.id.rel_Trip:
                 startActivity(new Intent(getApplicationContext(), TripHistoryActivity.class));
