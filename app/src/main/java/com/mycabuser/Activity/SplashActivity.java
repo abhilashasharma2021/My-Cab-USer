@@ -109,6 +109,8 @@ String userId="",PagerStatus="";
     }
 
 
+
+
     /*0=user_book,1=driver_confirm 2=driver_cancle 3=user_cancle 4=userc_confirm , 6=complete ride 5= start ride*/
     private void show_driver_responce(){
         AndroidNetworking.post(Api.BASE_URL+Api.show_driver_responce)
