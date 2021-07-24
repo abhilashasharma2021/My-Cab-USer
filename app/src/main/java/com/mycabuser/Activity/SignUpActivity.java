@@ -45,7 +45,7 @@ import okhttp3.OkHttpClient;
 public class SignUpActivity extends AppCompatActivity {
     ActivitySignUpBinding binding;
     String stMobile = "", stEmail = "";
-
+    String regID="";
 
     public static GoogleSignInClient mGoogleSignInClient;
     /*Google integration without using firebase*/
@@ -58,7 +58,10 @@ public class SignUpActivity extends AppCompatActivity {
         binding = ActivitySignUpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        googleSignIn();
+
+     regID = SharedHelper.getKey(getApplicationContext(), Appconstant.REG_ID_TOKEN);
+
+        Log.e("SignUpActivity", "regID: " +regID);
         String text = "By click start, you agree to our  <font color=#0092df>Terms and conditions</font>";
         binding.txtterm.setText(Html.fromHtml(text), TextView.BufferType.SPANNABLE);
 
@@ -260,6 +263,7 @@ public class SignUpActivity extends AppCompatActivity {
         AndroidNetworking.post(Api.BASE_URL + Api.genrate_otp)
                 .addBodyParameter("email", stEmail)
                 .addBodyParameter("mobile", stMobile)
+                .addBodyParameter("type", "1")/* type=0 Driver type= 1 user*/
                 .setOkHttpClient(innerClient)
                 .setPriority(Priority.HIGH)
                 .build()
@@ -325,7 +329,8 @@ public class SignUpActivity extends AppCompatActivity {
         Log.e("fdhfgh", "stMobile: " +stMobile);
         AndroidNetworking.post(Api.BASE_URL+Api.login)
                 .addBodyParameter("mobile", stMobile)
-                //.addBodyParameter("regid", regID)
+                .addBodyParameter("regid", regID)
+                .addBodyParameter("type", "1")/* type=0 Driver type= 1 user*/
                 .setPriority(Priority.HIGH)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
@@ -345,6 +350,7 @@ public class SignUpActivity extends AppCompatActivity {
                                 SharedHelper.putKey(getApplicationContext(), Appconstant.UserEmail, response.getString("email"));
                                 SharedHelper.putKey(getApplicationContext(), Appconstant.UserMobile, response.getString("phone_number"));
                                 SharedHelper.putKey(getApplicationContext(), Appconstant.GetOtp,response.getString("otp"));
+                                SharedHelper.putKey(getApplicationContext(), Appconstant.USERID,response.getString("id"));
 
                                 Toast toast = Toast.makeText(SignUpActivity.this, response.getString("result"), Toast.LENGTH_LONG);
                                 toast.setGravity(Gravity.CENTER, 0, 0);

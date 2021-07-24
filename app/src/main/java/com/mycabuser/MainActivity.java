@@ -22,6 +22,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.mycabuser.Activity.SignUpActivity;
+import com.mycabuser.Utils.ProgressBarCustom.Appconstant;
+import com.mycabuser.Utils.ProgressBarCustom.SharedHelper;
 
 public class MainActivity extends AppCompatActivity {
     private LinearLayout dotsLayout;
@@ -35,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SharedHelper.putKey(getApplicationContext(), Appconstant.PagerStatus, "1");
         setContentView(R.layout.activity_main);
         viewPager = findViewById(R.id.view_pager);
         dotsLayout =  findViewById(R.id.layoutDots);

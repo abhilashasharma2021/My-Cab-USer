@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.mycabuser">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -8,8 +9,8 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="com.mycabuser.permission.MAPS_RECEIVE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="com.mycabuser." />
+    <uses-permission android:name="android.permission.READ_Cpermission.MAPS_RECEIVEONTACTS" />
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -21,6 +22,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:requestLegacyExternalStorage="true"
+        android:name=".FCM.App"
         android:theme="@style/Theme.MyCabUser">
         <activity android:name=".Activity.MyAccountActivity"/>
         <activity
@@ -92,9 +95,29 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBOvBH3mXpuEzjP-KCbCYyw3curznSY9uI" />-->
 
+
+
+
+        <service
+            android:name=".FCM.FirebaseMessageRecieverService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyA9S6g02sDK4rJJ7S-hfrcv-hwMJB5udek" />
+
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
     </application>
 
 </manifest>

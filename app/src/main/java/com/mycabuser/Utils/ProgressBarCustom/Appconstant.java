@@ -16,6 +16,8 @@ public class Appconstant {
     public static final String PICK_USER_Address="PICK_USER_Address";
     public static final String DROP_OFF_Address="DROP_OFF_Address";
     public static final String VEHICLEDISTANCE="VEHICLEDISTANCE";
+    public static final String REG_ID_TOKEN="REG_ID_TOKEN";
+    public static final String PagerStatus="PagerStatus";
 
 
 

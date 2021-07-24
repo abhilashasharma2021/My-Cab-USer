@@ -27,11 +27,16 @@ import org.json.JSONObject;
 public class OTPVerifyActivity extends AppCompatActivity {
     ActivityOTPVerifyBinding binding;
     String getEmail="",getOTP="",getMobile="",pin,stUserID="";
+    String regID="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityOTPVerifyBinding.inflate(getLayoutInflater());
         setContentView( binding.getRoot());
+
+       regID = SharedHelper.getKey(getApplicationContext(), Appconstant.REG_ID_TOKEN);
+
+        Log.e("OTPVerifyActivity", "regID: " +regID);
 
         getEmail = SharedHelper.getKey(getApplicationContext(), Appconstant.UserEmail);
         getOTP = SharedHelper.getKey(getApplicationContext(), Appconstant.GetOtp);
@@ -88,17 +93,16 @@ public class OTPVerifyActivity extends AppCompatActivity {
         CustomDialog dialog = new CustomDialog();
         dialog.showDialog(R.layout.progress_layout, this);
         AndroidNetworking.post(Api.BASE_URL+ Api.verify_otp)
-                .addBodyParameter("email",getEmail)
                 .addBodyParameter("mobile",getMobile)
-                .addBodyParameter("type", "1")/* type=0 Driver type= 1 user*/
                 .addBodyParameter("otp",getOTP)
+                .addBodyParameter("id",stUserID)
+                .addBodyParameter("type","1")/* type=0 Driver type= 1 user*/
                 .setPriority(Priority.HIGH)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
-                    @SuppressLint("LongLogTag")
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("skclkxck",response.toString());
+                        Log.e("vfdvbfdvbfd",response.toString());
                         dialog.hideDialog();
                         try {
                             if (response.getString("result").equals("sign_in  Successfully")){
@@ -136,7 +140,7 @@ public class OTPVerifyActivity extends AppCompatActivity {
 
                     @Override
                     public void onError(ANError anError) {
-                        Log.e("ewrgfdsg",anError.getMessage());
+                        Log.e("wrfwef",anError.getMessage());
                         dialog.hideDialog();
 
                     }
@@ -156,6 +160,7 @@ public class OTPVerifyActivity extends AppCompatActivity {
                 .addBodyParameter("email", getEmail)
                 .addBodyParameter("mobile", getMobile)
                 .addBodyParameter("user_id", stUserID)
+                .addBodyParameter("regid", regID)
                 .addBodyParameter("type", "1")/* type=0 Driver type= 1 user*/
                 .setPriority(Priority.HIGH)
                 .build()
