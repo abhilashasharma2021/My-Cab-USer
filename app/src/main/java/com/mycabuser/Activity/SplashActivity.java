@@ -104,7 +104,6 @@ String userId="",PagerStatus="";
             }
         }).check();
 
-
         show_driver_responce();
 
     }
