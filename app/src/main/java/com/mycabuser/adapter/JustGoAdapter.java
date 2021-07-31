@@ -3,6 +3,7 @@ package com.mycabuser.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,8 +52,12 @@ public class JustGoAdapter extends RecyclerView.Adapter<JustGoAdapter.MyViewHold
             holder.rowjustgolayoutBinding.txtName.setText(modelObject.getTexi().getName());
            holder.rowjustgolayoutBinding.txtTime.setText(modelObject.getTime());
             holder.rowjustgolayoutBinding.txtPrice.setText(modelObject.getTotalAmount());
-            holder.rowjustgolayoutBinding.txtDistance.setText(modelObject.getTotalDistance());
+            holder.rowjustgolayoutBinding.txtDistance.setText(modelObject.getDistance());
 
+
+            Log.e("JustGoAdapter", "getTime: " +modelObject.getTime());
+            Log.e("JustGoAdapter", "getTotalAmount: " +modelObject.getTotalAmount());
+            Log.e("JustGoAdapter", "getDistance: " +modelObject.getDistance());
 
             try {
                 Glide.with(mContext).load(modelObject.getTexi().getPath() + modelObject.getTexi().getImage())
@@ -69,6 +74,8 @@ public class JustGoAdapter extends RecyclerView.Adapter<JustGoAdapter.MyViewHold
                     holder.rowjustgolayoutBinding.rlConatainer.setBackgroundColor(mContext.getResources().getColor(R.color.purple_200));
                     SharedHelper.putKey(mContext, Appconstant.SELECTEDVEHICLE, modelObject.getId());
                     SharedHelper.putKey(mContext, Appconstant.VEHICLEDISTANCE, modelObject.getDistance());
+                    SharedHelper.putKey(mContext, Appconstant.VEHICLENAME, modelObject.getTexi().getName());
+                    SharedHelper.putKey(mContext, Appconstant.VEHICLEIMAGE, modelObject.getTexi().getPath()+modelObject.getTexi().getImage());
                     SharedHelper.putKey(mContext, Appconstant.SELECTEDVEHICLEAMOUNT, modelObject.getTotalAmount());
 
                     Fragment fragment=new RequestFragment();

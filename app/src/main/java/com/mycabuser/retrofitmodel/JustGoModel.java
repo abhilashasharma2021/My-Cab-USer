@@ -5,6 +5,8 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+
+
 public class JustGoModel {
 
     @SerializedName("status")
@@ -29,8 +31,6 @@ public class JustGoModel {
     public void setData(List<Datum> data) {
         this.data = data;
     }
-
-
     public class Datum {
 
         @SerializedName("distance")
@@ -48,9 +48,9 @@ public class JustGoModel {
         @SerializedName("longitude")
         @Expose
         private String longitude;
-        @SerializedName("category_id")
+        @SerializedName("vehicle_id")
         @Expose
-        private String categoryId;
+        private String vehicleId;
         @SerializedName("time")
         @Expose
         private String time;
@@ -104,12 +104,12 @@ public class JustGoModel {
             this.longitude = longitude;
         }
 
-        public String getCategoryId() {
-            return categoryId;
+        public String getVehicleId() {
+            return vehicleId;
         }
 
-        public void setCategoryId(String categoryId) {
-            this.categoryId = categoryId;
+        public void setVehicleId(String vehicleId) {
+            this.vehicleId = vehicleId;
         }
 
         public String getTime() {
@@ -144,69 +144,66 @@ public class JustGoModel {
             this.totalDistance = totalDistance;
         }
 
+    }
 
+    public class Texi {
 
-        public class Texi {
+        @SerializedName("id")
+        @Expose
+        private String id;
+        @SerializedName("name")
+        @Expose
+        private String name;
+        @SerializedName("charges")
+        @Expose
+        private String charges;
+        @SerializedName("image")
+        @Expose
+        private String image;
+        @SerializedName("path")
+        @Expose
+        private String path;
 
-            @SerializedName("id")
-            @Expose
-            private String id;
-            @SerializedName("name")
-            @Expose
-            private String name;
-            @SerializedName("charges")
-            @Expose
-            private String charges;
-            @SerializedName("image")
-            @Expose
-            private String image;
-            @SerializedName("path")
-            @Expose
-            private String path;
+        public String getId() {
+            return id;
+        }
 
-            public String getId() {
-                return id;
-            }
+        public void setId(String id) {
+            this.id = id;
+        }
 
-            public void setId(String id) {
-                this.id = id;
-            }
+        public String getName() {
+            return name;
+        }
 
-            public String getName() {
-                return name;
-            }
+        public void setName(String name) {
+            this.name = name;
+        }
 
-            public void setName(String name) {
-                this.name = name;
-            }
+        public String getCharges() {
+            return charges;
+        }
 
-            public String getCharges() {
-                return charges;
-            }
+        public void setCharges(String charges) {
+            this.charges = charges;
+        }
 
-            public void setCharges(String charges) {
-                this.charges = charges;
-            }
+        public String getImage() {
+            return image;
+        }
 
-            public String getImage() {
-                return image;
-            }
+        public void setImage(String image) {
+            this.image = image;
+        }
 
-            public void setImage(String image) {
-                this.image = image;
-            }
+        public String getPath() {
+            return path;
+        }
 
-            public String getPath() {
-                return path;
-            }
-
-            public void setPath(String path) {
-                this.path = path;
-            }
-
+        public void setPath(String path) {
+            this.path = path;
         }
 
     }
-
 }
 

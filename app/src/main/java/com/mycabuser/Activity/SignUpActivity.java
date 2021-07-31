@@ -59,7 +59,7 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
-     regID = SharedHelper.getKey(getApplicationContext(), Appconstant.REG_ID_TOKEN);
+        regID = SharedHelper.getKey(getApplicationContext(), Appconstant.REG_ID_TOKEN);
 
         Log.e("SignUpActivity", "regID: " +regID);
         String text = "By click start, you agree to our  <font color=#0092df>Terms and conditions</font>";

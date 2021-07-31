@@ -60,11 +60,30 @@ public class FirebaseMessageRecieverService extends FirebaseMessagingService {
                 JSONObject data = jsonObject.getJSONObject("data");
                 String title = data.getString("title");
                 String message = data.getString("message");
+                String payload = data.getString("payload");
+                String id="";
+                JSONObject jsonObject1=new JSONObject(payload);
+                JSONArray jsonArray=new JSONArray(jsonObject1.getString("driver_ride"));
+                for (int i = 0; i <jsonArray.length() ; i++) {
 
-             /*   Intent myIntent = new Intent("Check");
-                myIntent.putExtra("action", title);
-                myIntent.putExtra("message", message);
-                this.sendBroadcast(myIntent);*/
+                    JSONObject jsonObject2=jsonArray.getJSONObject(i);
+                    id=jsonObject2.getString("id");
+
+                    Log.e("check", "id: " +id);
+                }
+
+
+
+
+                Log.e("check", "title: " +title);
+                Log.e("check", "message: " +message);
+
+                 Intent myIntent = new Intent("Check");
+                myIntent.putExtra("title", title);
+                myIntent.putExtra("id", id);
+                this.sendBroadcast(myIntent);
+
+
                 Log.e("gnggdgndgndng", "onMessageReceived: " + message);
                 Notification notification = new NotificationCompat.Builder(this, App.FCM_CHANNEL_ID)
                         .setSmallIcon(R.drawable.logo)
@@ -82,7 +101,7 @@ public class FirebaseMessageRecieverService extends FirebaseMessagingService {
                 resultIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(resultIntent);
 */
-
+                SharedHelper.putKey(getApplicationContext(), Appconstant.REQUESTID,id);
 
             } catch (JSONException e) {
                 e.printStackTrace();

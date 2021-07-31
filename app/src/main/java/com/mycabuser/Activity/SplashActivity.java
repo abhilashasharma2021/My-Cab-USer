@@ -38,8 +38,11 @@ import org.json.JSONObject;
 
 import java.util.List;
 
+import static com.mycabuser.Utils.ProgressBarCustom.Appconstant.USERID;
+
 public class SplashActivity extends AppCompatActivity {
-String userId="",PagerStatus="";
+    String userId = "", PagerStatus = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +58,9 @@ String userId="",PagerStatus="";
         }, 5000);*/
 
 
-        userId = SharedHelper.getKey(getApplicationContext(), Appconstant.USERID);
+        userId = SharedHelper.getKey(getApplicationContext(), USERID);
+
+        Log.e("fdhfghgfh", "USERID: " +USERID);
 
         PagerStatus = SharedHelper.getKey(getApplicationContext(), Appconstant.PagerStatus);
 
@@ -70,8 +75,19 @@ String userId="",PagerStatus="";
                 ).withListener(new MultiplePermissionsListener() {
             @Override
             public void onPermissionsChecked(MultiplePermissionsReport report) {
+                if (PagerStatus.equals("1")) {
+                    if (userId.equals("")) {
+                        startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
 
-                show_driver_responce();
+                    } else {
+                        show_driver_responce();
+                    }
+                }else {
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
+                }
+
+
 
             }
 
@@ -82,92 +98,87 @@ String userId="",PagerStatus="";
         }).check();
 
 
-
     }
 
 
-
+    /*1,4,6,5--screen change*/
 
     /*0=user_book,1=driver_confirm 2=driver_cancle 3=user_cancle 4=userc_confirm , 6=complete ride 5= start ride*/
-    private void show_driver_responce(){
-        AndroidNetworking.post(Api.BASE_URL+Api.show_driver_responce)
+    private void show_driver_responce() {
+        AndroidNetworking.post(Api.BASE_URL + Api.show_driver_responce)
                 .addBodyParameter("user_id", userId)
                 .setPriority(Priority.HIGH)
                 .build()
-                .getAsJSONArray(new JSONArrayRequestListener() {
+                .getAsJSONObject(new JSONObjectRequestListener() {
                     @Override
-                    public void onResponse(JSONArray response) {
-                        Log.e("sdssdsdsds", response.toString());
-                        for (int i = 0; i <response.length() ; i++) {
-                            try {
-                                JSONObject object=response.getJSONObject(i);
+                    public void onResponse(JSONObject response) {
+                        Log.e("fdghfdhbfg", "response: " +response);
+                        try {
+                            String driver_status = response.getString("driver_status");/*driver_status=true...driver_status=false  */
+                            String status = response.getString("status");
 
-                                String driver_status=object.getString("driver_status");/*driver_status=true...driver_status=false  */
-                                String status=object.getString("status");
+                            if (driver_status.equals("true")) {
 
-                               if (driver_status.equals("true")){
-
-                                   new Handler().postDelayed(new Runnable() {
-                                       @Override
-                                       public void run() {
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
 
 
-                                           if (PagerStatus.equals("1")){
-                                               if (userId.equals("")) {
+                                        if (PagerStatus.equals("1")) {
+                                            if (userId.equals("")) {
+                                                startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
+                                                SharedHelper.putKey(getApplicationContext(), Appconstant.REQUESTSTATUSPAGE, "");
+                                            } else {
 
-                                                   startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
-                                                   finish();
-                                                   SharedHelper.putKey(getApplicationContext(), Appconstant.REQUESTSTATUSPAGE, "");
-                                               } else {
+                                                if (status.equals("1")) {
+                                                    SharedHelper.putKey(getApplicationContext(), Appconstant.REQUESTSTATUSPAGE, "1");
+                                                    startActivity(new Intent(getApplicationContext(), NavigationActivity.class));
+                                                    finish();
+                                                    Log.e("sdssdsdsds", status + "1");
+                                                } else {
 
-                                                   if (status.equals("1")){
-                                                       SharedHelper.putKey(getApplicationContext(), Appconstant.REQUESTSTATUSPAGE, "1");
-                                                       startActivity(new Intent(getApplicationContext(), NavigationActivity.class));
-                                                       finish();
-                                                       Log.e("sdssdsdsds", status+"1");
-                                                   }else {
-                                                       SharedHelper.putKey(getApplicationContext(), Appconstant.REQUESTSTATUSPAGE, "");
+                                                    SharedHelper.putKey(getApplicationContext(), Appconstant.REQUESTSTATUSPAGE, "");
+                                                    startActivity(new Intent(getApplicationContext(), NavigationActivity.class));
+                                                    finish();
+                                                    Log.e("sdssdsdsds", status + "ccc");
+                                                }
 
-                                                       startActivity(new Intent(getApplicationContext(), NavigationActivity.class));
-                                                       finish();
-                                                       Log.e("sdssdsdsds", status+"ccc");
-                                                   }
-
-                                               }
+                                            }
 
 
-                                           }
-                                           else {
+                                        } else {
 
-                                               startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                                               finish();
-                                           }
-
+                                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                            finish();
+                                        }
 
 
-                                       }
-                                   }, 3000);
+                                    }
+                                }, 3000);
 
 
+                            }else {
 
-                               }
-
-                            } catch (JSONException e) {
-                                Log.e("SplashActivity", "e: " +e);
                             }
-
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
+
+
                     }
 
                     @Override
                     public void onError(ANError anError) {
-                        Log.e("SplashActivity", "anError: " +anError);
+
                     }
                 });
 
 
-
     }
-
-
 }
+
+
+
+
+
+

@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -32,6 +33,8 @@ public class NavigationActivity extends AppCompatActivity  implements View.OnCli
         setContentView(R.layout.activity_navigation);
         drawer = findViewById(R.id.drawer);
         REQUESTSTATUSPAGE=SharedHelper.getKey(getApplicationContext(),Appconstant.REQUESTSTATUSPAGE);
+
+        Log.e("dvdsvsdvd", "REQUESTSTATUSPAGE: " +REQUESTSTATUSPAGE);
 
 
         if (savedInstanceState == null) {
@@ -120,7 +123,7 @@ public class NavigationActivity extends AppCompatActivity  implements View.OnCli
         btn_yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               SharedHelper.putKey(getApplicationContext(), Appconstant.USERID, "");
+                SharedHelper.putKey(getApplicationContext(), Appconstant.USERID, "");
                 startActivity(new Intent(getApplicationContext(), SplashActivity.class));
                 finish();
             }

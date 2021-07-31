@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.androidnetworking.AndroidNetworking;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.mycabuser.APIData.API;
 import com.mycabuser.APIData.JsonInterface;
 import com.mycabuser.R;
@@ -50,6 +52,8 @@ public class RequestFragment extends Fragment {
         context = getActivity();
         String stSelectedAmount = SharedHelper.getKey(getActivity(), Appconstant.SELECTEDVEHICLEAMOUNT);
         String stSelectedDistance = SharedHelper.getKey(getActivity(), Appconstant.VEHICLEDISTANCE);
+        String VEHICLEIMAGE = SharedHelper.getKey(getActivity(), Appconstant.VEHICLEIMAGE);
+        String VEHICLENAME = SharedHelper.getKey(getActivity(), Appconstant.VEHICLENAME);
 
         Log.e("RequestFragment", "stSelectedDistance: " +stSelectedDistance);
         if (!stSelectedAmount.equals("")){
@@ -58,8 +62,27 @@ public class RequestFragment extends Fragment {
 
         }
 
+        if (!VEHICLENAME.equals("")){
+            binding.txtName.setText(VEHICLENAME);
+        }else {
+
+        }
+        if (!VEHICLEIMAGE.equals("")){
+            try {
+                Glide.with(getActivity()).load(VEHICLEIMAGE)
+                        .placeholder(R.drawable.dummy).override(250, 250)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .into(binding.ivlocation);
+            } catch (Exception e) {
+
+            }
+        }
+
+
+
+
         if (!stSelectedDistance.equals("")){
-            binding.txtDistance.setText("$"+ stSelectedDistance);
+            binding.txtDistance.setText(stSelectedDistance);
         }else {
 
         }

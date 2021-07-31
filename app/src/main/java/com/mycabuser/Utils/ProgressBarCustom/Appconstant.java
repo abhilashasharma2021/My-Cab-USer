@@ -19,6 +19,9 @@ public class Appconstant {
     public static final String REG_ID_TOKEN="REG_ID_TOKEN";
     public static final String PagerStatus="PagerStatus";
     public static final String REQUESTSTATUSPAGE="REQUESTSTATUSPAGE";
+    public static final String REQUESTID="REQUESTID";
+    public static final String VEHICLENAME="VEHICLENAME";
+    public static final String VEHICLEIMAGE="VEHICLEIMAGE";
 
 
 

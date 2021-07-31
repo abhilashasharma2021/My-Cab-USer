@@ -76,7 +76,8 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         REQUESTSTATUSPAGE = SharedHelper.getKey(getActivity(), Appconstant.REQUESTSTATUSPAGE);
         getUserId = SharedHelper.getKey(getActivity(), Appconstant.USERID);
 
-        Log.e("HomeFragment", "getUserId: " +getUserId);
+        Log.e("fdhgfb", "getUserId: " +getUserId);
+        Log.e("fdhgfb", "REQUESTSTATUSPAGE: " +REQUESTSTATUSPAGE);
 
         menu = view.findViewById(R.id.menu);
         prf = view.findViewById(R.id.prf);
